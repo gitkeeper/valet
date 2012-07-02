@@ -1,0 +1,10 @@
+*.gem
+.bundle
+.yardoc
+_site
+coverage
+doc
+pkg
+tmp
+Gemfile.lock
+rerun.txt
