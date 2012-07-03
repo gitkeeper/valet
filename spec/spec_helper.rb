@@ -8,6 +8,9 @@ SimpleCov.start do
   add_group 'Specs',    'spec/'
 end
 
+# Load all support files inside RSpec's support directory
+Dir[File.expand_path('spec/support/**/*.rb')].each { |file| require file }
+
 # Load the application
 require 'valet'
 include Valet
