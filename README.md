@@ -2,7 +2,7 @@
 
 [![Build Status](https://secure.travis-ci.org/gitkeeper/valet.png?branch=master)](http://travis-ci.org/gitkeeper/valet) [![Dependency Status](https://gemnasium.com/gitkeeper/valet.png)](https://gemnasium.com/gitkeeper/valet)
 
-__Website__:        <http://gitkeeper.github.com/valet>  
+__Homepage__:       <http://gitkeeper.github.com/valet>  
 __Git Repository__: <https://github.com/gitkeeper/valet>  
 __Author__:         Alexander Baumann  
 __Copyright__:      2012  
@@ -13,9 +13,10 @@ __Release Date__:   02.07.2012
 ## Introduction
 
 Valet helps you write the sophisticated command-line interfaces you're so used
-to from GNU/Linux. It provides a beautiful API, template support, man page
-generator, and many other useful features. No matter how large or complex your
-application is, Valet tops it off with the command-line interface it deserves.
+to from GNU/Linux. It provides a beautiful API, rich template support, smart
+configuration, man page generator, and many other useful features. No matter how
+large or complex your application is, Valet tops it off with the command-line
+interface it deserves.
 
 For a detailed description and explanation of Valet's capabilities, please visit
 [Valet's documentation](http://gitkeeper.github.com/valet).
@@ -25,27 +26,34 @@ For a detailed description and explanation of Valet's capabilities, please visit
 Please refer to [Valet's documentation](http://gitkeeper.github.com/valet) for
 up-to-date installation and usage instructions.
 
-## Development
-
-To see what has changed in recent versions of Valet, take a look at the
-[CHANGELOG](https://github.com/gitkeeper/valet/blob/master/CHANGELOG.md).
-
-The `master` branch contains all stable releases while the `development` branch
-represents the project's current progress.
-
-## Documentation
-
-Valet's documentation takes place on a seperate branch called `gh-pages`. If
-you want to contribute you can do so in
-[Valet's documentation branch](https://github.com/gitkeeper/valet/tree/gh-pages).
-
 ## Contributing
+
+The project consists of three main branches:
+
+* The `master` branch contains all stable and tagged releases.
+* The `development` branch represents the project's current progress.
+* The `gh-pages` branch includes the project's documentation.
+
+### Development
+
+If you want to contribute to development, please use separate feature or bugfix
+branches and create a new pull request:
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+5. Create new pull request
+
+### Documentation
+
+If you'd like to help improving or extending the project's documentation, please
+visit [Valet's documentation branch](https://github.com/gitkeeper/valet/tree/gh-pages).
+
+## Changelog
+
+To see what has changed in recent versions of Valet, take a look at the
+[CHANGELOG](https://github.com/gitkeeper/valet/blob/master/CHANGELOG.md).
 
 ## Copyright
 
