@@ -8,6 +8,9 @@ SimpleCov.start do
   add_group 'Specs',    'spec/'
 end
 
+# Load all support files inside RSpec's support directory
+Dir[File.expand_path('spec/support/**/*.rb')].each { |file| require file }
+
 # Load the application
 require 'valet'
 include Valet
@@ -15,4 +18,8 @@ include Valet
 # Configure RSpec
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
+
+  # Use a :focus tag for running only specific example(s)
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
 end
