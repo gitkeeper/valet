@@ -16,7 +16,7 @@ markdown:    rdiscount
 permalink:   date
 
 include:     []
-exclude:     [Gemfile, Gemfile.lock, LICENSE, README.md]
+exclude:     [Gemfile, Gemfile.lock, README.md]
 
 rdiscount:
   extensions: []

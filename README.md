@@ -5,8 +5,8 @@ __Git Repository__: <https://github.com/gitkeeper/valet/tree/gh-pages>
 __Author__:         Alexander Baumann  
 __Copyright__:      2012  
 __License__:        MIT License  
-__Doc Version__:    0.0.1  
-__Doc Date__:       02.07.2012  
+__Doc Version__:    0.0.2  
+__Doc Date__:       03.07.2012
 
 ## Introduction
 
@@ -15,14 +15,14 @@ which is published as a [GitHub Project Page](http://gitkeeper.github.com/valet)
 
 ## Installation
 
-After you have forked this branch `gh-pages`, execute Bundler to install all the
+After you have cloned this branch `gh-pages`, execute Bundler to install all the
 necessary gems used for documenting:
 
     $ bundle
 
 You also need to install [Pygments](http://pygments.org) in order for the syntax
-highlighting to work. Depending on your operating system, the installation can
-vary. I recommend to read the section "Pygments" on
+highlighting to work on your development machine. Depending on your operating
+system, the installation can vary. I recommend to read the section "Pygments" on
 [Jekyll's installation page](https://github.com/mojombo/jekyll/wiki/install).
 
 ## Usage
@@ -55,14 +55,17 @@ The documentation will then be available at <http://localhost:4000> by default.
 
 ## Contributing
 
+If you'd like to help improving or extending the project's documentation, please
+use separate feature of bugfix branches and create a new pull request:
+
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+5. Create new pull request
 
 ## Copyright
 
 Valet &copy; 2012 by Alexander Baumann. Valet is licensed under the MIT license.
-Please see the [LICENSE](https://github.com/gitkeeper/valet/blob/gh-pages/LICENSE)
+Please see the [LICENSE](https://github.com/gitkeeper/valet/blob/master/LICENSE)
 document for more information.
