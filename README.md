@@ -7,7 +7,7 @@ __Git Repository__: <https://github.com/gitkeeper/valet>
 __Author__:         Alexander Baumann  
 __Copyright__:      2012  
 __License__:        MIT License  
-__Latest Version__: 0.0.3  
+__Latest Version__: 0.0.4  
 __Release Date__:   06.07.2012  
 
 ## Introduction
