@@ -7,8 +7,8 @@ __Git Repository__: <https://github.com/gitkeeper/valet>
 __Author__:         Alexander Baumann  
 __Copyright__:      2012  
 __License__:        MIT License  
-__Latest Version__: 0.0.2  
-__Release Date__:   03.07.2012  
+__Latest Version__: 0.0.3  
+__Release Date__:   06.07.2012  
 
 ## Introduction
 
@@ -39,11 +39,11 @@ The project consists of three main branches:
 If you want to contribute to development, please use separate feature or bugfix
 branches and create a new pull request:
 
-1. Fork it
+1. [Fork it](https://github.com/gitkeeper/valet/fork)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
-5. Create new pull request
+5. [Create new pull request](https://github.com/gitkeeper/valet/pull/new/master)
 
 ### Documentation
 
