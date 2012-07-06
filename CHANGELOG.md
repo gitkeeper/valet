@@ -1,5 +1,12 @@
 # Valet - CHANGELOG
 
+### 0.0.3 / 06.07.2012
+
+* Feature "Version" roughly implemented to get started
+* Added namespace to Valet's version module inside the specs (Rubinius, JRuby)
+* Fixed syntax for RSpec's filter config (Rubinius, JRuby)
+* Small syntax improvements and refactorings
+
 ### 0.0.2 / 03.07.2012
 
 * Added a post-install message to `valet.gemspec` to inform users of Valet's
