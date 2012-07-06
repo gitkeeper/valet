@@ -1,5 +1,9 @@
 # Valet - CHANGELOG
 
+### 0.0.5 / 06.07.2012
+
+* Allowed jruby and rbx to fail a build on Travis
+
 ### 0.0.4 / 06.07.2012
 
 * Updated configuration of Travis to use jruby and rbx in 19mode
