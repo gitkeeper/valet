@@ -5,7 +5,7 @@ __Git Repository__: <https://github.com/gitkeeper/valet/tree/gh-pages>
 __Author__:         Alexander Baumann  
 __Copyright__:      2012  
 __License__:        MIT License  
-__Doc Version__:    0.0.3  
+__Doc Version__:    0.0.4  
 __Doc Date__:       06.07.2012
 
 ## Introduction
