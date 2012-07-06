@@ -14,6 +14,6 @@ describe Valet::VERSION do
   end
 
   it "has a RubyGems compliant version string" do
-    Valet::VERSION::STRING.should match(/^\d+\.\d+\.\d+(\.rc\d+)?$/)
+    Valet::VERSION::STRING.should match(/\A\d+\.\d+\.\d+(\.rc\d+)?\z/)
   end
 end
