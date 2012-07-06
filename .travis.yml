@@ -1,10 +1,12 @@
 script: "bundle exec rspec spec && bundle exec cucumber features"
+
 rvm:
   - 1.9.2
   - 1.9.3
-  - rbx
-  - jruby
-notifications:
-  email:
-    on_success: always
-    on_failure: always
+  - rbx-19mode
+  - jruby-19mode
+
+branches:
+  only:
+    - master
+    - development
