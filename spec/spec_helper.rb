@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift File.expand_path('../../../lib', __FILE__)
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
 # Start code coverage
 require 'simplecov'
@@ -13,6 +13,9 @@ Dir[File.expand_path('spec/support/**/*.rb')].each { |file| require file }
 
 # Load the application
 require 'valet'
+require 'valet/cli'
+
+# Include the application
 include Valet
 
 # Configure RSpec
