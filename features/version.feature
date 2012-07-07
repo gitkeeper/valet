@@ -30,6 +30,7 @@ Feature: Version
     When I successfully run the script `name_and_version.rb`
     Then the stdout should contain "Backup 1.2.3"
 
+  @wip
   Scenario: Print out copyright notice
     Given an empty command-line interface named "copyright.rb"
     When I successfully run the script `copyright.rb`
@@ -38,6 +39,7 @@ Feature: Version
       Copyright (C) 2007 Free Software Foundation, Inc.
       """
 
+  @wip
   Scenario: Print out legal status
     Given an empty command-line interface named "legal_status.rb"
     When I successfully run the script `legal_status.rb`
@@ -48,6 +50,7 @@ Feature: Version
       There is NO WARRANTY, to the extent permitted by law.
       """
 
+  @wip
   Scenario: Print out application name, version, copyright and legal status
     Given a command-line interface named "version.rb" with:
       """
