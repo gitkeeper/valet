@@ -1,5 +1,1 @@
 #!/usr/bin/env ruby
-
-require 'valet/cli'
-
-Valet::CLI.start
