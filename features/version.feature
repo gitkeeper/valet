@@ -74,11 +74,11 @@ Feature: Version (--version)
   Scenario: Print out the complete version summary
     Given a Valet application named "version.rb" with:
       """
-      self.name = 'Backup'
-      self.version = '1.2.3'
-      self.authors = ['Alexander Baumann', 'Bob the Builder']
+      self.name      = 'Backup'
+      self.version   = '1.2.3'
+      self.authors   = ['Alexander Baumann', 'Bob the Builder']
       self.copyright = 'Copyright (c) 2012 Free Software Foundation, Inc.'
-      self.license = <<-LICENSE.gsub(/^ {4}/, '').strip
+      self.license   = <<-LICENSE.gsub(/^ {4}/, '').strip
         License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
         This is free software: You are free to change and redistribute it.
         There is NO WARRANTY, to the extent permitted by law.
