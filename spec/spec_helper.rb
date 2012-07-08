@@ -13,9 +13,15 @@ Dir[File.expand_path('spec/support/**/*.rb')].each { |file| require file }
 
 # Load the application
 require 'valet'
-
-# Include the application
 include Valet
+
+# Capture STDOUT and STDIN in new IO streams
+require 'stringio'
+$stdout = StringIO.new
+$stderr = StringIO.new
+
+# Reset ARGV to contain no arguments
+ARGV.clear
 
 # Configure RSpec
 RSpec.configure do |config|
