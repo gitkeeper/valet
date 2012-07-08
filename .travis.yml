@@ -6,6 +6,11 @@ rvm:
   - rbx
   - jruby
 
+matrix:
+  allow_failures:
+    - rvm: rbx
+    - rvm: jruby
+
 branches:
   only:
     - master

@@ -1,5 +1,10 @@
 # Valet - CHANGELOG
 
+### 0.0.7 / 08.07.2012
+
+* JRuby and Rubinius still won't build successfully on Travis. Allowed them once
+  again to build with failures.
+
 ### 0.0.6 / 08.07.2012
 
 * New GNU compliant feature: "Version"
