@@ -8,10 +8,8 @@ module CLIHelper
       <<-CLI_FILE.gsub(/^ {8}/, '')
         require 'valet'
 
-        class CLI
-          extend Valet::Application
-
-          #{@content or '# No content has been given'}
+        class CLI < Valet::Application
+        #{@content ? @content.gsub(/^/, '  ') : '# No content has been given'}
         end
 
         CLI.start
