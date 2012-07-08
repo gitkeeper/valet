@@ -1,7 +1,7 @@
-Feature: Version
+Feature: Version (--version)
 
   In order to check an application's version and legal information
-  As a software developer
+  As a software developer and user of the application
   I want to print out its version summary
 
   A complete version summary may look like this:
