@@ -4,7 +4,8 @@ guard 'rspec', all_on_start: false, all_after_pass: false do
   watch('spec/spec_helper.rb')  { 'spec' }
 end
 
-guard 'cucumber', all_on_start: false, all_after_pass: false do
+guard 'cucumber', all_on_start: false, all_after_pass: false,
+  cli: '--format progress --color --strict --tags ~@wip' do
   watch(%r{features/.+\.feature$})
   watch(%r{^features/support/.+$}) { 'features' }
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) do |m|
