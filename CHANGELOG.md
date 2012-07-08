@@ -1,5 +1,14 @@
 # Valet - CHANGELOG
 
+### 0.0.6 / 08.07.2012
+
+* New GNU compliant feature: "Version"
+* Basic Mustache views and templates integration
+* Postponed Valet's own CLI in favor of creating a general API first
+* Minor improvements to the development and testing environment
+* Refactored features and step definitions
+* New skeleton feature for next iteration: "Help"
+
 ### 0.0.5 / 06.07.2012
 
 * Allowed jruby and rbx to fail a build on Travis
