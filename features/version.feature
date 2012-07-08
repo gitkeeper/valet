@@ -16,7 +16,7 @@ Feature: Version
   http://www.gnu.org/prep/standards/standards.html#g_t_002d_002dversion
 
   Scenario: Print out application name
-    Given a command-line interface named "name.rb" with:
+    Given a Valet application named "name.rb" with:
       """
       self.name = 'Backup'
       """
@@ -24,7 +24,7 @@ Feature: Version
     Then the stdout should contain "Backup"
 
   Scenario: Print out application name and version
-    Given a command-line interface named "name_and_version.rb" with:
+    Given a Valet application named "name_and_version.rb" with:
       """
       self.name = 'Backup'
       self.version = '1.2.3'
@@ -33,7 +33,7 @@ Feature: Version
     Then the stdout should contain "Backup 1.2.3"
 
   Scenario: Print out authors
-    Given a command-line interface named "authors.rb" with:
+    Given a Valet application named "authors.rb" with:
       """
       self.authors = ['Alexander Baumann', 'Bob the Builder']
       """
@@ -44,7 +44,7 @@ Feature: Version
       """
 
   Scenario: Print out copyright notice
-    Given a command-line interface named "copyright.rb" with:
+    Given a Valet application named "copyright.rb" with:
       """
       self.copyright = 'Copyright (c) 2012 Free Software Foundation, Inc.'
       """
@@ -55,7 +55,7 @@ Feature: Version
       """
 
   Scenario: Print out legal status
-    Given a command-line interface named "legal_status.rb" with:
+    Given a Valet application named "legal_status.rb" with:
       """
       self.license = <<-LICENSE.gsub(/^ {4}/, '').strip
         License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -72,7 +72,7 @@ Feature: Version
       """
 
   Scenario: Print out the complete version summary
-    Given a command-line interface named "version.rb" with:
+    Given a Valet application named "version.rb" with:
       """
       self.name = 'Backup'
       self.version = '1.2.3'
@@ -102,7 +102,7 @@ Feature: Version
       {{name}} {{version}}
       For more information, please visit http://gitkeeper.github.com/valet
       """
-    And a command-line interface named "custom_version_template.rb" with:
+    And a Valet application named "custom_version_template.rb" with:
       """
       self.name = 'Backup'
       self.version = '1.2.3'
