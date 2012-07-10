@@ -3,20 +3,25 @@ module Valet
     class << self
       attr_accessor :name, :version, :authors, :copyright, :license
 
-      def start(args = ARGV)
-        new(args)
+      def commands
+        @commands ||= Commands.new
+      end
+
+      def command(name, &block)
+        command = Command.new(name)
+        block.call(command) if block_given?
+        commands << command
+      end
+
+      def start(arguments = ARGV)
+        new(arguments)
       end
     end
 
-    attr_reader :args
+    attr_reader :arguments
 
-    def initialize(args)
-      @args = args
-      render_version
-    end
-
-    def render_version
-      puts Views::Version.new(self.class).render.strip
+    def initialize(arguments = ARGV)
+      @arguments = arguments
     end
   end
 end

@@ -30,10 +30,10 @@ Feature: Help (--help)
   http://www.gnu.org/prep/standards/standards.html#g_t_002d_002dhelp
 
   Scenario: Usage and syntax reference
-  Scenario: Short description about the application's purpose
+  Scenario: Short description about Valet's purpose
   Scenario: List of examples
   Scenario: Available global options
-  Scenario: Available sub-commands
+  Scenario: Available (sub-)commands
   Scenario: Bug reporting address
   Scenario: Application homepage
   Scenario: Other commands, options and operands are ignored
