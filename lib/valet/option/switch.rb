@@ -5,7 +5,7 @@ module Valet
     class Switch < Common
       attr_reader :default, :value
 
-      def initialize(name, params = {})
+      def initialize(long_name, params = {})
         @default = params[:default] ? true : false
         @value   = @default
         super
@@ -15,10 +15,12 @@ module Valet
         @value = ! @value
       end
 
-      private
-
       def long_name_to_s
-        default ? "--no-#{long_name}" : "--#{long_name}"
+        if default
+          "--no-#{long_name}".gsub(/_/, '-')
+        else
+          "--#{long_name}".gsub(/_/, '-')
+        end
       end
     end
   end

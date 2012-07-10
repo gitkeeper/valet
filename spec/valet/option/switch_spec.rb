@@ -27,36 +27,20 @@ describe Valet::Option::Switch do
     end
   end
 
-  describe "#to_s" do
-    context "if the switch's default is false" do
-      let(:opt) { Option::Switch.new(:force) }
-
-      it "returns the switch's long name as '--switch'" do
-        expect(opt.to_s).to eq('--force')
-      end
-
-      it "prepends the switch's short name as '-s, --switch'" do
-        opt.short_name = :f
-        expect(opt.to_s).to start_with('-f, ')
-      end
+  describe "#long_name_to_s" do
+    it "returns the switch's long name as '--switch'" do
+      opt = Option::Switch.new(:force)
+      expect(opt.long_name_to_s).to eq('--force')
     end
 
-    context "if the switch's default is true" do
-      let(:opt) { Option::Switch.new(:clobber, default: true) }
-
-      it "returns the switch's long name as --no-switch" do
-        expect(opt.to_s).to eq('--no-clobber')
-      end
-
-      it "prepends the switch's short name as '-s, --no-switch'" do
-        opt.short_name = :c
-        expect(opt.to_s).to start_with('-c, ')
-      end
+    it "returns the switch's long name as --no-switch" do
+      opt = Option::Switch.new(:clobber, default: true)
+      expect(opt.long_name_to_s).to eq('--no-clobber')
     end
 
-    it "transforms underscores in the long name to dashes and spaces" do
+    it "transforms underscores to dashes" do
       opt = Option::Switch.new(:ignore_errors)
-      expect(opt.to_s).to eq('--ignore-errors')
+      expect(opt.long_name_to_s).to eq('--ignore-errors')
     end
   end
 

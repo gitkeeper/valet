@@ -16,4 +16,15 @@ shared_examples_for "a common option" do
       expect(opt.description).to eq('specify a format (markdown or textile)')
     end
   end
+
+  describe "#short_name_to_s" do
+    it "returns the short name's string representation" do
+      opt.short_name = :f
+      expect(opt.short_name_to_s).to eq('-f')
+    end
+
+    it "returns nil if no short name has been set" do
+      expect(opt.short_name_to_s).to be_nil
+    end
+  end
 end

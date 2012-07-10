@@ -12,23 +12,12 @@ module Valet
 
       alias_method :name, :long_name
 
-      def to_s
-        [short_name_to_s, long_name_to_s].compact.join(', ').gsub(/_/, '-')
-      end
-
       def switch?
         instance_of?(Switch)
       end
 
       def flag?
         instance_of?(Flag)
-      end
-
-      private
-
-      def long_name_to_s
-        raise NotImplementedError,
-          "Called abstract method: ##{__method__}"
       end
 
       def short_name_to_s
