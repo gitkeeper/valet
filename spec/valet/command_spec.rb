@@ -9,9 +9,10 @@ describe Valet::Command do
     its(:name)        { should be_a(Symbol) }
     its(:action)      { should be_a(Proc) }
     its(:options)     { should be_an_instance_of(Options) }
-    its(:commands)    { should be_an_instance_of(Commands) }
+    its(:syntax)      { should be_nil }
     its(:summary)     { should be_nil }
     its(:description) { should be_nil }
+    its(:examples)    { should eq([])}
   end
 
   describe "attributes" do
@@ -20,9 +21,9 @@ describe Valet::Command do
       expect(cmd.options).to have(1).option
     end
 
-    it "(sub-)commands can be added" do
-      cmd.commands << double("Command")
-      expect(cmd.commands).to have(1).command
+    it "can be given a syntax" do
+      cmd.syntax = 'backup [OPTION]... SOURCE... DIRECTORY'
+      expect(cmd.syntax).to eq('backup [OPTION]... SOURCE... DIRECTORY')
     end
 
     it "can be given a summary" do
@@ -38,6 +39,11 @@ describe Valet::Command do
       DESC
       cmd.description = description
       expect(cmd.description).to be(description)
+    end
+
+    it "can be given one ore more examples" do
+      cmd.examples << ['zipped backup', 'backup --gzip ~/project ~/backups']
+      expect(cmd.examples).to have(1).example
     end
   end
 
@@ -118,25 +124,5 @@ describe Valet::Command do
 
       expect(cmd.execute('Robert', 'Martin')).to eq('Robert')
     end
-
-    it "exits with 0 if everything went well"
-    it "exits with 1 if there was a problem"
-  end
-
-  describe "#usage" do
-    it "returns the command's basic syntax"
-    it "returns the command's syntax for available options"
-    it "returns the command's syntax for available (sub-)commands"
-    it "returns an [OPTION] placeholder if there are many options"
-    it "returns a [COMMAND] placeholder if there are many (sub-)commands"
-  end
-
-  describe "#help" do
-    it "returns the command's usage"
-    it "returns the command's summary"
-    it "returns the command's description"
-    it "returns the command's examples"
-    it "returns the command's available options"
-    it "returns the command's available (sub-)commands"
   end
 end
