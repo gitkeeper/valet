@@ -1,14 +1,12 @@
 module Valet
   class Command
-    attr_reader :name, :options, :commands, :examples
-    attr_accessor :summary, :description, :syntax
+    attr_reader :name, :options
+    attr_accessor :syntax, :summary, :description
 
     def initialize(name, &block)
-      @name = name
-      @action = block
-      @options = Options.new
-      @commands = Commands.new
-      @examples = []
+      @name     = name
+      @action   = block
+      @options  = Options.new
     end
 
     def action(&block)

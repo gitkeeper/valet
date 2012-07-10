@@ -12,7 +12,6 @@ describe Valet::Command do
     its(:syntax)      { should be_nil }
     its(:summary)     { should be_nil }
     its(:description) { should be_nil }
-    its(:examples)    { should eq([])}
   end
 
   describe "attributes" do
@@ -39,11 +38,6 @@ describe Valet::Command do
       DESC
       cmd.description = description
       expect(cmd.description).to be(description)
-    end
-
-    it "can be given one ore more examples" do
-      cmd.examples << ['zipped backup', 'backup --gzip ~/project ~/backups']
-      expect(cmd.examples).to have(1).example
     end
   end
 
