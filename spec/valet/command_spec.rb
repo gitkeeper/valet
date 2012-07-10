@@ -4,7 +4,7 @@ describe Valet::Command do
   subject(:cmd) { Command.new(:backup) }
 
   describe "#initialize" do
-    subject(:cmd) { Command.new(:backup) { 'Backing up...' } }
+    subject { Command.new(:backup) { 'Backing up...' } }
 
     its(:name)        { should be_a(Symbol) }
     its(:action)      { should be_a(Proc) }
@@ -116,7 +116,7 @@ describe Valet::Command do
       expect(cmd.execute('Robert', 'Martin')).to eq('Robert Martin')
     end
 
-    it "can call an action with multiple operands and have access to #options" do
+    it "can call an action with multiple operands and has access to #options" do
       cmd.stub(options: double("Options", last_name?: false))
       cmd.action do |options, first_name, last_name|
         options.last_name? ? last_name : first_name
