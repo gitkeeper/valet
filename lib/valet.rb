@@ -22,6 +22,7 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 require 'valet/version'
+require 'valet/application'
 require 'valet/command'
 require 'valet/commands'
 require 'valet/option/switch'
