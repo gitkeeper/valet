@@ -3,13 +3,13 @@ script: "bundle exec rspec spec && bundle exec cucumber features"
 rvm:
   - 1.9.2
   - 1.9.3
-  - rbx
-  - jruby
+  - jruby-19mode
+  - rbx-19mode
 
 matrix:
   allow_failures:
-    - rvm: rbx
     - rvm: jruby
+    - rvm: rbx
 
 branches:
   only:
