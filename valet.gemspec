@@ -34,7 +34,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_development_dependency 'rake',          '~> 0.9'
-  gem.add_development_dependency 'rspec',         '~> 2.10'
+  gem.add_development_dependency 'rspec',         '~> 2.11'
   gem.add_development_dependency 'cucumber',      '~> 1.2'
   gem.add_development_dependency 'aruba',         '~> 0.4'
   gem.add_development_dependency 'simplecov',     '~> 0.6'

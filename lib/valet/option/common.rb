@@ -1,28 +1,38 @@
 module Valet
   module Option
     class Common
-      def self.create(name, params = {})
-        option = new(name, params)
-        option
-      end
+      attr_reader :long_name
+      attr_accessor :short_name, :description
 
-      attr_reader :name
-      attr_accessor :short_name, :description, :default, :value
-
-      def initialize(name, params = {})
-        @name        = name
+      def initialize(long_name, params = {})
+        @long_name   = long_name
         @short_name  = params[:short]
         @description = params[:desc]
-        @default     = params[:default]
-        @value       = @default
+      end
+
+      alias_method :name, :long_name
+
+      def to_s
+        [short_name_to_s, long_name_to_s].compact.join(', ').gsub(/_/, '-')
       end
 
       def switch?
-        false
+        instance_of?(Switch)
       end
 
       def flag?
-        false
+        instance_of?(Flag)
+      end
+
+      private
+
+      def long_name_to_s
+        raise NotImplementedError,
+          "Called abstract method: ##{__method__}"
+      end
+
+      def short_name_to_s
+        "-#{short_name}" if short_name
       end
     end
   end

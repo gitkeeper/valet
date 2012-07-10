@@ -21,9 +21,9 @@ module Valet
 
     def option(name, params = {})
       if params[:type]
-        options << Option::Flag.create(name, params)
+        options << Option::Flag.new(name, params)
       else
-        options << Option::Switch.create(name, params)
+        options << Option::Switch.new(name, params)
       end
     end
   end

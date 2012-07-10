@@ -24,7 +24,6 @@
 require 'valet/version'
 require 'valet/command'
 require 'valet/commands'
-require 'valet/option/common'
 require 'valet/option/switch'
 require 'valet/option/flag'
 require 'valet/options'

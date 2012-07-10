@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe Valet::Command do
-  let(:cmd) { Command.new(:backup) { 'Backing up...' } }
+  subject(:cmd) { Command.new(:backup) }
 
   describe "#initialize" do
-    subject { cmd }
+    subject(:cmd) { Command.new(:backup) { 'Backing up...' } }
 
     its(:name)        { should be_a(Symbol) }
     its(:action)      { should be_a(Proc) }
@@ -15,28 +15,19 @@ describe Valet::Command do
   end
 
   describe "attributes" do
-    it "can be given an action by supplying a Proc" do
-      cmd.action { 'Backing up...' }
-      cmd.action.call.should == 'Backing up...'
+    it "options can be added" do
+      cmd.options << double("Option")
+      expect(cmd.options).to have(1).option
     end
 
-    it "can be given options" do
-      cmd.stub(options: double("Options"))
-
-      cmd.options.should_receive(:<<)
-      cmd.options << stub("Option")
-    end
-
-    it "can be given (sub-)commands" do
-      cmd.stub(commands: double("Commands"))
-
-      cmd.commands.should_receive(:<<)
-      cmd.commands << stub("Command")
+    it "(sub-)commands can be added" do
+      cmd.commands << double("Command")
+      expect(cmd.commands).to have(1).command
     end
 
     it "can be given a summary" do
       cmd.summary = 'Backup compresses and archives your precious data.'
-      cmd.summary.should == 'Backup compresses and archives your precious data.'
+      expect(cmd.summary).to eq('Backup compresses and archives your precious data.')
     end
 
     it "can be given a description" do
@@ -46,36 +37,51 @@ describe Valet::Command do
         multiple locations to copy your archives to.
       DESC
       cmd.description = description
-      cmd.description.should == description
+      expect(cmd.description).to be(description)
+    end
+  end
+
+  describe "#action" do
+    before { cmd.action { 'Backing up...' } }
+
+    it "attaches a new action if a block is supplied" do
+      cmd.action { 'Deleting all backups...' }
+      expect(cmd.action.call).to eq('Deleting all backups...')
+    end
+
+    it "returns the action if no block is supplied" do
+      expect(cmd.action.call).to eq('Backing up...')
     end
   end
 
   describe "#option" do
     context "if the option has no specific type" do
+      let(:option) { double("Option") }
+
       it "adds a new switch option to the command's option collection" do
-        option = stub("Option")
-        Option::Switch.stub(create: option)
+        Option::Switch.stub(new: option)
 
         cmd.options.should_receive(:<<).with(option)
         cmd.option(:verbose)
       end
 
       it "returns the command's option collection" do
-        cmd.option(:verbose).should == cmd.options
+        expect(cmd.option(:verbose)).to be(cmd.options)
       end
     end
 
     context "if the option has a specific type" do
+      let(:option) { double("Option", type: String) }
+
       it "adds a new flag option to the command's option collection" do
-        option = stub("Option", type: String)
-        Option::Flag.stub(create: option)
+        Option::Flag.stub(new: option)
 
         cmd.options.should_receive(:<<).with(option)
         cmd.option(:output, type: String)
       end
 
       it "returns the command's option collection" do
-        cmd.option(:output, type: String).should == cmd.options
+        expect(cmd.option(:output, type: String)).to be(cmd.options)
       end
     end
   end
@@ -83,7 +89,7 @@ describe Valet::Command do
   describe "#execute" do
     it "can call an action without block parameters" do
       cmd.action { 'Backing up...' }
-      cmd.execute.should == 'Backing up...'
+      expect(cmd.execute).to eq('Backing up...')
     end
 
     it "has access to #options" do
@@ -96,12 +102,12 @@ describe Valet::Command do
 
     it "can call an action with one operand" do
       cmd.action { |_, name| "Hello #{name}!"}
-      cmd.execute('Bob').should == 'Hello Bob!'
+      expect(cmd.execute('Bob')).to eq('Hello Bob!')
     end
 
     it "can call an action with multiple operands" do
       cmd.action { |_, first_name, last_name| "#{first_name} #{last_name}" }
-      cmd.execute('Robert', 'Martin') == 'Robert Martin'
+      expect(cmd.execute('Robert', 'Martin')).to eq('Robert Martin')
     end
 
     it "can call an action with multiple operands and have access to #options" do
@@ -110,7 +116,7 @@ describe Valet::Command do
         options.last_name? ? last_name : first_name
       end
 
-      cmd.execute('Robert', 'Martin') == 'Robert'
+      expect(cmd.execute('Robert', 'Martin')).to eq('Robert')
     end
 
     it "exits with 0 if everything went well"

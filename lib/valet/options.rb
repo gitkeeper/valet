@@ -1,3 +1,5 @@
+require 'set'
+
 module Valet
   class Options < Set
     def method_missing(method_name, *args, &block)
@@ -11,15 +13,11 @@ module Valet
     private
 
     def find_switch(name)
-      self.find do |option|
-        name =~ /#{option.name}\?/ if option.switch?
-      end
+      self.find { |option| name =~ /#{option.name}\?/ if option.switch? }
     end
 
     def find_flag(name)
-      self.find do |option|
-        name == option.name if option.flag?
-      end
+      self.find { |option| name == option.name if option.flag? }
     end
   end
 end
