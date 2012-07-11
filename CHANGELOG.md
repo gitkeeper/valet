@@ -1,5 +1,22 @@
 # Valet - CHANGELOG
 
+### 0.0.8 / 11.07.2012
+
+Started over with a new approach, designing business objects and API first
+
+* Made an output notice in bin/valet to notify the user of Valet's current
+  development status
+* Implemented core classes with basic business rules
+  * Application
+  * Command
+  * Options
+  * Option::Switch
+  * Option::Flag
+* New RSpec 'expect' syntax and improved support files to help with testing
+  stdout, stderr and stdin streams
+* Playing around with Travis (JRuby and Rubinius compatibility seems to fail on
+  me because of C-extensions and code coverage...)
+
 ### 0.0.7 / 08.07.2012
 
 * JRuby and Rubinius still won't build successfully on Travis. Allowed them once
