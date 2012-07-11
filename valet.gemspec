@@ -1,14 +1,14 @@
 require File.expand_path('../lib/valet/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = 'valet'
-  gem.version       = Valet::VERSION::STRING
-  gem.license       = 'MIT'
-  gem.authors       = ['Alexander Baumann']
-  gem.email         = ['alexander.baumann@arclight.ch']
-  gem.homepage      = 'http://gitkeeper.github.com/valet'
-  gem.summary       = 'A framework for creating GNU compliant command-line interfaces.'
-  gem.description   = <<-DESCRIPTION.gsub(/^ {4}/, '').gsub(/\n/, ' ').strip
+  gem.name        = 'valet'
+  gem.version     = Valet::VERSION::STRING
+  gem.license     = 'MIT'
+  gem.authors     = ['Alexander Baumann']
+  gem.email       = ['alexander.baumann@arclight.ch']
+  gem.homepage    = 'http://gitkeeper.github.com/valet'
+  gem.summary     = 'A framework for creating GNU compliant command-line interfaces.'
+  gem.description = <<-DESCRIPTION.gsub(/^ {4}/, '').gsub(/\n/, ' ').strip
     Valet helps you write the sophisticated command-line interfaces you're so
     used to from GNU/Linux. It provides a beautiful API, rich template support,
     smart configuration, man page generator, and many other useful features.
