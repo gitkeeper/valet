@@ -3,7 +3,20 @@ shared_examples_for "a common option" do
 
   its(:long_name)   { should be_a(Symbol) }
   its(:short_name)  { should be_nil }
+  its(:summary)     { should be_nil }
   its(:description) { should be_nil }
+
+  describe "#initialize" do
+    context "raises an OptionError" do
+      it "if the long name is not a symbol" do
+        expect { described_class.new('format') }.to raise_error(OptionError)
+      end
+
+      it "if the long name is only one character long" do
+        expect { described_class.new(:f) }.to raise_error(OptionError)
+      end
+    end
+  end
 
   describe "attributes" do
     it "can be given a short name" do
@@ -11,9 +24,24 @@ shared_examples_for "a common option" do
       expect(opt.short_name).to be(:f)
     end
 
+    it "can be given a summary" do
+      opt.summary = 'Specify a format (Markdown or Textile)'
+      expect(opt.summary).to eq('Specify a format (Markdown or Textile)')
+    end
+
     it "can be given a description" do
-      opt.description = 'specify a format (markdown or textile)'
-      expect(opt.description).to eq('specify a format (markdown or textile)')
+      opt.description = 'A longer option description...'
+      expect(opt.description).to eq('A longer option description...')
+    end
+
+    context "raises an OptionError" do
+      it "if the short name is not a symbol" do
+        expect { opt.short_name = 'f' }.to raise_error(OptionError)
+      end
+
+      it "if the short name is longer than one character" do
+        expect { opt.short_name = 'format' }.to raise_error(OptionError)
+      end
     end
   end
 
@@ -21,10 +49,6 @@ shared_examples_for "a common option" do
     it "returns the short name's string representation" do
       opt.short_name = :f
       expect(opt.short_name_to_s).to eq('-f')
-    end
-
-    it "returns nil if no short name has been set" do
-      expect(opt.short_name_to_s).to be_nil
     end
   end
 end
