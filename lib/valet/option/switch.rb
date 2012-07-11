@@ -5,10 +5,15 @@ module Valet
     class Switch < Common
       attr_reader :default, :value
 
-      def initialize(long_name, params = {})
-        @default = params[:default] ? true : false
-        @value   = @default
+      def initialize(long_name)
         super
+        @default = false
+        @value = @default
+      end
+
+      def default=(new_default)
+        @default = new_default ? true : false
+        @value = @default
       end
 
       def switch

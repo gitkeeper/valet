@@ -3,15 +3,30 @@ require 'spec_helper'
 describe Valet::Options do
   subject(:opts) { Options.new }
 
-  describe "dynamic methods" do
-    before do
-      opts << Option::Switch.new(:verbose, default: false)
-      opts << Option::Flag.new(:output, default: '~/backups')
+  let(:switch) { Option::Switch.new(:verbose) }
+  let(:flag) { Option::Flag.new(:output) }
+
+  before { opts << switch << flag }
+
+  describe "#[]" do
+    it "searches for a switch option by a given name and returns it" do
+      expect(opts[:verbose]).to equal(switch)
     end
 
+    it "searches for a flag option by a given name and returns it" do
+      expect(opts[:output]).to equal(flag)
+    end
+
+    it "returns nil if nothing could be found" do
+      expect(opts[:clobber]).to be_nil
+    end
+  end
+
+  describe "#method_missing" do
     context "access to switch options" do
       it "returns the switch's value if #method_name matches its option name" do
-        expect(opts.verbose?).to be_false
+        switch.stub(value: true)
+        expect(opts.verbose?).to be_true
       end
 
       it "raises a NoMethodError if using no question mark in #method_name" do
@@ -25,6 +40,7 @@ describe Valet::Options do
 
     context "access to flag options" do
       it "returns the flag's value if #method_name matches its option name" do
+        flag.stub(value: '~/backups')
         expect(opts.output).to eq('~/backups')
       end
 

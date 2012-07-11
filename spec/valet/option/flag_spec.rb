@@ -6,53 +6,60 @@ describe Valet::Option::Flag do
   subject(:opt) { Option::Flag.new(:output) }
 
   its(:type)     { should be(String) }
-  its(:argument) { should eq('OUTPUT') }
   its(:default)  { should be_nil }
   its(:value)    { should be_nil }
-
-  describe "#initialize" do
-    it "can be set to a custom type" do
-      opt = Option::Flag.new(:output, type: Array)
-      expect(opt.type).to be(Array)
-    end
-
-    it "can be set to a custom value by default" do
-      opt = Option::Flag.new(:output, default: '~/backups')
-      expect(opt.value).to eq('~/backups')
-    end
-  end
+  its(:arg_name) { should eq('output')}
 
   describe "attributes" do
-    it "can be assigned a different argument" do
-      opt.argument = 'FILE'
-      expect(opt.argument).to eq('FILE')
+    it "can be given a custom type" do
+      opt.type = Integer
+      expect(opt.type).to be(Integer)
     end
 
-    it "can be assigned a new value" do
+    it "can be given a default" do
+      opt.default = '~/backups'
+      expect(opt.value).to eq('~/backups')
+    end
+
+    it "can be given a value" do
       opt.value = '/var/backups'
       expect(opt.value).to eq('/var/backups')
+    end
+
+    it "can be given a custom argument name" do
+      opt.arg_name = 'file'
+      expect(opt.arg_name).to eq('file')
+    end
+
+    context "raises an OptionError" do
+      it "if the given type is not allowed" do
+        expect { opt.type = Mutex }.to raise_error(TypeError)
+      end
     end
   end
 
   describe "#long_name_to_s" do
-    it "returns '--flag=FLAG' if the flag has no default" do
+    it "returns '--flag=<flag>' if the flag has no default" do
       opt = Option::Flag.new(:suffix)
-      expect(opt.long_name_to_s).to eq('--suffix=SUFFIX')
+      opt.default = nil
+      expect(opt.long_name_to_s).to eq('--suffix=<suffix>')
     end
 
-    it "returns '--flag[=FLAG]' if the flag has a default" do
-      opt = Option::Flag.new(:chmod, default: 775)
-      expect(opt.long_name_to_s).to eq('--chmod[=CHMOD]')
+    it "returns '--flag[=<flag>]' if the flag has a default" do
+      opt = Option::Flag.new(:chmod)
+      opt.default = 755
+      expect(opt.long_name_to_s).to eq('--chmod[=<chmod>]')
     end
 
     it "transforms underscores to dashes" do
       opt = Option::Flag.new(:target_directory)
-      expect(opt.long_name_to_s).to eq('--target-directory=TARGET DIRECTORY')
+      expect(opt.long_name_to_s).to eq('--target-directory=<target directory>')
     end
 
-    it "uses the custom option argument if given" do
-      opt = Option::Flag.new(:remote_host, arg: 'HOST')
-      expect(opt.long_name_to_s).to eq('--remote-host=HOST')
+    it "prints the custom argument name if it has been set" do
+      opt = Option::Flag.new(:remote_host)
+      opt.arg_name = 'host'
+      expect(opt.long_name_to_s).to eq('--remote-host=<host>')
     end
   end
 
