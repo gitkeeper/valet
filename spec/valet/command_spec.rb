@@ -4,7 +4,7 @@ describe Valet::Command do
   subject(:cmd) { Command.new(:backup) }
 
   its(:name)        { should be_a(Symbol) }
-  its(:aliases)     { should eq([]) }
+  its(:aliases)     { should be_nil }
   its(:action)      { should be_nil }
   its(:options)     { should be_an_instance_of(Options) }
   its(:commands)    { should be_an_instance_of(Commands) }
@@ -23,8 +23,8 @@ describe Valet::Command do
 
   describe "attributes" do
     it "can be given aliases" do
-      cmd.aliases << :bak
-      expect(cmd.aliases).to include(:bak)
+      cmd.aliases = [:bak, :b]
+      expect(cmd.aliases).to eq([:bak, :b])
     end
 
     it "can be given options" do

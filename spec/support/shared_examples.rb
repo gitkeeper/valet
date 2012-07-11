@@ -1,9 +1,9 @@
 shared_examples_for "a common option" do
   subject(:opt) { described_class.new(:format) }
 
-  its(:long_name) { should be_a(Symbol) }
-  its(:short_name) { should be_nil }
-  its(:summary) { should be_nil }
+  its(:long_name)   { should be_a(Symbol) }
+  its(:short_name)  { should be_nil }
+  its(:summary)     { should be_nil }
   its(:description) { should be_nil }
 
   describe "#initialize" do

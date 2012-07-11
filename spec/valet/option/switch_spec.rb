@@ -6,7 +6,7 @@ describe Valet::Option::Switch do
   subject(:opt) { Option::Switch.new(:verbose) }
 
   its(:default) { should be_false }
-  its(:value) { should be_false }
+  its(:value)   { should be_false }
 
   describe "attributes" do
     it "can be given a new default 'true'" do

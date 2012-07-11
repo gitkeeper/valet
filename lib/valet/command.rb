@@ -1,12 +1,11 @@
 module Valet
   class Command
-    attr_reader :name, :aliases, :options, :commands, :examples
-    attr_accessor :syntax, :summary, :description
+    attr_reader :name, :options, :commands, :examples
+    attr_accessor :aliases, :syntax, :summary, :description
 
     def initialize(name, &block)
       validate_name(name)
       @name     = name
-      @aliases  = []
       @action   = block
       @options  = Options.new
       @commands = Commands.new
