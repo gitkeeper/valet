@@ -1,1 +1,15 @@
 #!/usr/bin/env ruby
+
+require 'valet/version'
+
+puts <<-MESSAGE.gsub(/^ {2}/, '')
+
+  # -------------------------------------------------------------------- #
+
+      Thank you for trying out Valet #{Valet::VERSION::STRING}!
+
+      Valet is still in development and not yet intended to be used.
+
+  # -------------------------------------------------------------------- #
+
+MESSAGE

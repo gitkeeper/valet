@@ -1,22 +1,14 @@
 module Valet
   class Application
-    class << self
-      attr_accessor :name, :version, :authors, :copyright, :license
+    attr_reader :arguments, :options, :commands, :examples
+    attr_accessor :name, :version, :authors, :email, :homepage
+    attr_accessor :copyright, :license, :summary, :description
 
-      def start(args = ARGV)
-        new(args)
-      end
-    end
-
-    attr_reader :args
-
-    def initialize(args)
-      @args = args
-      render_version
-    end
-
-    def render_version
-      puts Views::Version.new(self.class).render.strip
+    def initialize(arguments = ARGV)
+      @arguments = arguments
+      @options   = Options.new
+      @commands  = Commands.new
+      @examples  = []
     end
   end
 end
