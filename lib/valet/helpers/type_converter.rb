@@ -1,18 +1,23 @@
 module Valet
   module Helpers
-    module TypeCast
+    class StringConverter
       ALLOWED_TYPES = [String, Integer, Float, Array, Hash, Time]
 
-      def string_to(type, string)
-        validate_type(type)
+      attr_reader :target_type
 
+      def target_type=(new_target_type)
+        validate_type(new_target_type)
+        @target_type = new_target_type
+      end
+
+      def convert(string)
         case
-        when type == Integer then string.to_i
-        when type == Float then string.to_f
-        when type == Array then to_array(string)
-        when type == Hash then to_hash(string)
-        when type == Time then Time.parse(string)
-        else type.new(string)
+        when target_type == Integer then string.to_i
+        when target_type == Float then string.to_f
+        when target_type == Array then to_array(string)
+        when target_type == Hash then to_hash(string)
+        when target_type == Time then Time.parse(string)
+        else string
         end
       end
 
@@ -34,7 +39,7 @@ module Valet
       end
 
       def to_hash(string)
-        string.split(/,|\s/).inject(Hash.new) do |hash, str|
+        to_array(string).inject(Hash.new) do |hash, str|
           key, value = str.split(/:/)
           hash[key.to_sym] = value
           hash

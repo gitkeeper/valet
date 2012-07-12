@@ -1,22 +1,23 @@
 require 'valet/option/common'
-require 'valet/helpers/type_cast'
+require 'valet/helpers/type_converter'
 
 module Valet
   module Option
     class Flag < Common
-      include Helpers::TypeCast
-
-      attr_reader :type, :default, :value
+      attr_reader :default, :value
       attr_writer :arg_name
 
       def initialize(long_name)
         super
-        @type = String
+        @converter = Helpers::StringConverter.new
       end
 
-      def type=(new_type)
-        validate_type(new_type)
-        @type = new_type
+      def type
+        @converter.target_type
+      end
+
+      def type=(new_target_type)
+        @converter.target_type = new_target_type
       end
 
       def default=(new_default)
@@ -25,7 +26,7 @@ module Valet
       end
 
       def value=(new_value)
-        @value = string_to(type, new_value)
+        @value = @converter.convert(new_value)
       end
 
       def arg_name

@@ -5,13 +5,13 @@ describe Valet::Option::Flag do
 
   subject(:opt) { Option::Flag.new(:output) }
 
-  its(:type)     { should be(String) }
+  its(:type)     { should be_nil }
   its(:default)  { should be_nil }
   its(:value)    { should be_nil }
   its(:arg_name) { should eq('output')}
 
   describe "attributes" do
-    it "can be given a custom type" do
+    it "can be given a type" do
       opt.type = Integer
       expect(opt.type).to be(Integer)
     end
@@ -26,15 +26,15 @@ describe Valet::Option::Flag do
       expect(opt.value).to eq('/var/backups')
     end
 
+    it "converts the given value to the given type" do
+      opt.type = Array
+      opt.value = 'Bob,Alisha,Fred'
+      expect(opt.value).to eq(%w( Bob Alisha Fred ))
+    end
+
     it "can be given a custom argument name" do
       opt.arg_name = 'file'
       expect(opt.arg_name).to eq('file')
-    end
-
-    context "raises an OptionError" do
-      it "if the given type is not allowed" do
-        expect { opt.type = Mutex }.to raise_error(TypeError)
-      end
     end
   end
 
