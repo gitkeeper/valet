@@ -7,11 +7,13 @@ module Valet
     end
 
     def method_missing(method_name, *args, &block)
-      if (option = find_switch(method_name)) || (option = find_flag(method_name))
-        option.value
+      if /(?<option_name>.+)\?\z/ =~ method_name
+        option = find_switch(option_name.to_sym)
       else
-        super
+        option = find_flag(method_name.to_sym)
       end
+
+      option ? option.value : super
     end
 
     private
@@ -21,7 +23,7 @@ module Valet
     end
 
     def find_switch(name)
-      self.find { |option| name =~ /#{option.name}\?/ if option.switch? }
+      self.find { |option| name == option.name if option.switch? }
     end
 
     def find_flag(name)

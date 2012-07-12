@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Valet::Options do
   subject(:opts) { Options.new }
 
-  let(:switch) { Option::Switch.new(:verbose) }
-  let(:flag) { Option::Flag.new(:output) }
+  let(:switch) { double("Switch", name: :verbose, switch?: true, flag?: false) }
+  let(:flag) { double("Flag", name: :output, flag?: true, switch?: false) }
 
   before { opts << switch << flag }
 
