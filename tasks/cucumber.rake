@@ -1,5 +1,7 @@
 require 'cucumber/rake/task'
 
+CLEAN.include('rerun.txt')
+
 default_opts = ['--format progress', '--color']
 
 namespace :cucumber do
