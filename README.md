@@ -1,6 +1,6 @@
 # Valet - README
 
-[![Build Status](https://secure.travis-ci.org/gitkeeper/valet.png?branch=master)](http://travis-ci.org/gitkeeper/valet) [![Dependency Status](https://gemnasium.com/gitkeeper/valet.png)](https://gemnasium.com/gitkeeper/valet)
+[![Build Status](https://secure.travis-ci.org/gitkeeper/valet.png?branch=master)](http://travis-ci.org/gitkeeper/valet) [![Dependency Status](https://gemnasium.com/gitkeeper/valet.png)](https://gemnasium.com/gitkeeper/valet) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/gitkeeper/valet)
 
 __Homepage__:       <http://gitkeeper.github.com/valet>  
 __Git Repository__: <https://github.com/gitkeeper/valet>  
