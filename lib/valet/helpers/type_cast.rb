@@ -7,7 +7,6 @@ module Valet
         validate_type(type)
 
         case
-        when type == String then string
         when type == Integer then string.to_i
         when type == Float then string.to_f
         when type == Array then to_array(string)
