@@ -53,6 +53,4 @@ module Valet
       end
     end
   end
-
-  class OptionError < StandardError; end
 end

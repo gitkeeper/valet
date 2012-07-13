@@ -55,6 +55,4 @@ module Valet
       proc.arity <= 2 && proc.arity >= 0
     end
   end
-
-  class CommandError < StandardError; end
 end
