@@ -5,28 +5,26 @@ module Valet
   module Option
     class Flag < Common
       attr_reader :default, :value
-      attr_writer :arg_name
+      attr_writer :arg_name, :converter
 
-      def initialize(long_name)
-        super
-        @converter = Helpers::StringConverter.new
+      def converter
+        @converter ||= Helpers::StringConverter.new
       end
 
       def type
-        @converter.target_type
+        converter.target_type
       end
 
       def type=(new_target_type)
-        @converter.target_type = new_target_type
+        converter.target_type = new_target_type
       end
 
       def default=(new_default)
-        @default = new_default
-        @value = @default
+        self.value = @default = new_default
       end
 
       def value=(new_value)
-        @value = @converter.convert(new_value)
+        @value = converter.convert(new_value)
       end
 
       def arg_name

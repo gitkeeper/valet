@@ -5,7 +5,7 @@ describe Valet::Option::Flag do
 
   subject(:opt) { Option::Flag.new(:output) }
 
-  its(:type)     { should be_nil }
+  its(:type)     { should be(String) }
   its(:default)  { should be_nil }
   its(:value)    { should be_nil }
   its(:arg_name) { should eq('output')}

@@ -3,7 +3,9 @@ module Valet
     class StringConverter
       ALLOWED_TYPES = [String, Integer, Float, Array, Hash, Time]
 
-      attr_reader :target_type
+      def target_type
+        @target_type ||= String
+      end
 
       def target_type=(new_target_type)
         validate_type(new_target_type)

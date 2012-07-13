@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Valet::Helpers::StringConverter do
   subject(:converter) { Helpers::StringConverter.new }
 
-  its(:target_type) { should be_nil }
+  its(:target_type) { should be(String) }
 
   describe "attributes" do
     it "can be given a target type" do
