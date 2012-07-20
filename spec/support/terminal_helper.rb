@@ -1,8 +1,8 @@
 require 'stringio'
 
 RSpec.configure do |config|
-  # Clear all remaining arguments in ARGV to make it testable
-  config.before(:suite) { ARGV.clear }
+  # Clear all arguments in ARGV
+  config.before(:each) { ARGV.clear }
 
   # Reroute STDOUT, STDERR and STDIN to testable streams
   config.before(:each) do
