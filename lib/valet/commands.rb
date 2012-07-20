@@ -2,6 +2,8 @@ require 'set'
 
 module Valet
   class Commands < Set
-    # Code goes here...
+    def [](name)
+      self.find { |command| name == command.name }
+    end
   end
 end
