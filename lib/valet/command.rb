@@ -3,11 +3,10 @@ module Valet
     attr_reader :name, :options, :commands, :examples
     attr_accessor :aliases, :syntax, :summary, :description
 
-    def initialize(name, &block)
+    def initialize(name)
       validate_name(name)
-      @name     = name
-      @action   = block
-      @options  = Options.new
+      @name = name
+      @options = Options.new
       @commands = Commands.new
       @examples = []
     end
@@ -47,7 +46,7 @@ module Valet
     def validate_action(proc)
       unless valid_action?(proc)
         raise CommandError,
-          "Action: '#{action}' may not have more than two block parameters"
+          "Action: '#{proc}' may not have more than two block parameters"
       end
     end
 

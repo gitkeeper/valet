@@ -3,7 +3,6 @@ require 'spec_helper'
 describe Valet::Application do
   subject(:app) { Application.new }
 
-  its(:arguments)   { should be(ARGV) }
   its(:options)     { should be_an_instance_of(Options) }
   its(:commands)    { should be_an_instance_of(Commands) }
 

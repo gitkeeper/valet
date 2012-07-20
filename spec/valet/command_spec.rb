@@ -4,10 +4,11 @@ describe Valet::Command do
   subject(:cmd) { Command.new(:backup) }
 
   its(:name)        { should be_a(Symbol) }
-  its(:aliases)     { should be_nil }
-  its(:action)      { should be_nil }
   its(:options)     { should be_an_instance_of(Options) }
   its(:commands)    { should be_an_instance_of(Commands) }
+
+  its(:aliases)     { should be_nil }
+  its(:action)      { should be_nil }
   its(:syntax)      { should be_nil }
   its(:summary)     { should be_nil }
   its(:description) { should be_nil }
