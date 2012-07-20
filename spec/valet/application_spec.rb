@@ -17,6 +17,16 @@ describe Valet::Application do
   its(:description) { should be_nil }
   its(:examples)    { should eq([]) }
 
+  describe ".define" do
+    it "creates and yields the new application if a block was supplied" do
+      expect { |b| Application.define(&b) }.to yield_with_args(Application)
+    end
+
+    it "just creates a new application if no block was supplied" do
+      expect(Application.define).to be_an_instance_of(Application)
+    end
+  end
+
   describe "attributes" do
     it "can be given a name" do
       app.name = 'Backup'

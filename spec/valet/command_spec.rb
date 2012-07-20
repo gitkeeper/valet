@@ -14,11 +14,19 @@ describe Valet::Command do
   its(:description) { should be_nil }
   its(:examples)    { should eq([]) }
 
+  describe ".define" do
+    it "creates and yields the new command if a block was supplied" do
+      expect { |b| Command.define(:backup, &b) }.to yield_with_args(Command)
+    end
+
+    it "just creates a new command if no block was supplied" do
+      expect(Command.define(:backup)).to be_an_instance_of(Command)
+    end
+  end
+
   describe "#initialize" do
-    context "raises a CommandError" do
-      it "if the name is not a symbol" do
-        expect { Command.new('backup') }.to raise_error(CommandError)
-      end
+    it "raises a CommandError if the name is not a symbol" do
+      expect { Command.new('backup') }.to raise_error(CommandError)
     end
   end
 

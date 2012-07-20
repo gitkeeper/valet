@@ -1,5 +1,11 @@
 module Valet
   class Command
+    def self.define(name)
+      command = new(name)
+      yield(command) if block_given?
+      command
+    end
+
     attr_reader :name, :options, :commands, :examples
     attr_accessor :aliases, :syntax, :summary, :description
 
