@@ -1,0 +1,17 @@
+# Building
+/pkg/
+/tmp/
+
+# Bundler
+/.bundle/
+Gemfile.lock
+
+# Testing
+/coverage/
+/spec/reports/
+.rspec_status
+
+# Documentation
+/doc/
+/.yardoc/
+/_yardoc/
