@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = Gem::Requirement.new(">= 3.1.3")
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
-
+  spec.metadata["rubygems_mfa_required"] = "true"
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/gitkeeper/valet"
   spec.metadata["changelog_uri"] = "https://github.com/gitkeeper/valet/blob/main/CHANGELOG.md"
@@ -36,11 +36,10 @@ Gem::Specification.new do |spec|
 
   spec.extra_rdoc_files = ["README.md"]
 
-  spec.add_development_dependency "rake", "~> 13.0", ">= 13.0"
-  spec.add_development_dependency "rspec", "~> 3.12", ">= 3.12"
-  spec.add_development_dependency "rubocop", "~> 1.39", ">= 1.39"
-  spec.add_development_dependency "rubocop-rake", "~> 0.6", ">= 0.6"
-  spec.add_development_dependency "rubocop-rspec", "~> 2.15", ">= 2.15"
-  spec.add_development_dependency "simplecov", "~> 0.21", ">= 0.21"
-  spec.metadata["rubygems_mfa_required"] = "true"
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "rspec", "~> 3.12"
+  spec.add_development_dependency "rubocop", "~> 1.39"
+  spec.add_development_dependency "rubocop-rake", "~> 0.6"
+  spec.add_development_dependency "rubocop-rspec", "~> 2.15"
+  spec.add_development_dependency "simplecov", "~> 0.21"
 end
