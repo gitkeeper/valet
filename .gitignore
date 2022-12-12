@@ -4,7 +4,6 @@
 
 # Bundler
 /.bundle/
-Gemfile.lock
 
 # Testing
 /coverage/
@@ -14,4 +13,4 @@ Gemfile.lock
 # Documentation
 /doc/
 /.yardoc/
-/_yardoc/
+
