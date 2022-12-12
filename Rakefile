@@ -12,4 +12,11 @@ RuboCop::RakeTask.new do |task|
   task.requires << "rubocop-rspec"
 end
 
+require "cucumber"
+require "cucumber/rake/task"
+
+Cucumber::Rake::Task.new(:features) do |task|
+  task.cucumber_opts = ["--format pretty", "--publish-quiet"]
+end
+
 task default: %i[spec rubocop]
