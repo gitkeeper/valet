@@ -26,8 +26,14 @@ end
 require "cucumber"
 require "cucumber/rake/task"
 
-Cucumber::Rake::Task.new(:features) do |task|
-  task.cucumber_opts = ["--format pretty", "--publish-quiet"]
+namespace :features do
+  Cucumber::Rake::Task.new(:all) do |task|
+    task.cucumber_opts = ["--publish-quiet", "--format progress"]
+  end
+
+  Cucumber::Rake::Task.new(:wip) do |task|
+    task.cucumber_opts = ["--publish-quiet", "--format pretty", "--tags @wip"]
+  end
 end
 
 # YARD tasks
