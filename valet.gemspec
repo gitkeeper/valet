@@ -35,6 +35,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.extra_rdoc_files = ["README.md"]
 
+  spec.add_runtime_dependency "rake", "~> 13.0"
   spec.add_runtime_dependency "thor", "~> 1.2"
 
   spec.add_development_dependency "aruba", "~> 2.1"
