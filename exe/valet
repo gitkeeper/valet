@@ -2,6 +2,5 @@
 # frozen_string_literal: true
 
 require "valet"
-require "valet/cli"
 
-Valet::CLI.start
+Valet::CLI.start(ARGV)
