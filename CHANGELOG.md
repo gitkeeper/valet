@@ -1,3 +1,15 @@
+## 0.2.0 (December 17, 2022)
+
+Features:
+
+- Added a command-line interface (CLI) for Valet, powered by Thor.
+- Added a prefix command to batch rename a pattern of files with the options of
+  `--verbose`, `--dry-run` and `--timestamp`.
+
+Changes:
+
+- Added runtime dependency for **Thor** and **Rake** (particularly for FileList)
+
 ## 0.1.1 (December 12, 2022)
 
 Features:
