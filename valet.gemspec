@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   DESCRIPTION
   spec.homepage      = "https://github.com/gitkeeper/valet"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 3.1.3")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.3.0")
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
   spec.metadata["rubygems_mfa_required"] = "true"
@@ -37,14 +37,4 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "rake", "~> 13.0"
   spec.add_runtime_dependency "thor", "~> 1.2"
-
-  spec.add_development_dependency "aruba", "~> 2.1"
-  spec.add_development_dependency "cucumber", "~> 8.0"
-  spec.add_development_dependency "rake", "~> 13.0"
-  spec.add_development_dependency "rspec", "~> 3.12"
-  spec.add_development_dependency "rubocop", "~> 1.39"
-  spec.add_development_dependency "rubocop-rake", "~> 0.6"
-  spec.add_development_dependency "rubocop-rspec", "~> 2.15"
-  spec.add_development_dependency "simplecov", "~> 0.21"
-  spec.add_development_dependency "yard", "~> 0.9"
 end
